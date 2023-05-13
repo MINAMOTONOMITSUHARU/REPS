@@ -12,7 +12,7 @@ object Main {
     val outputs2 = (1 to 100).map(_ => TimestampedOutput(now.plusSeconds(random.nextInt(10000)), random.nextDouble())).toList
     val outputs3 = (1 to 100).map(_ => TimestampedOutput(now.plusSeconds(random.nextInt(10000)), random.nextDouble())).toList
 
-    // Create some energy sources
+    //use case1: Create some energy sources
     val solarPanel = SolarPanel("SP1", outputs1)
     val windTurbine = WindTurbine("WT1", outputs2)
     val hydropowerPlant = HydropowerPlant("HP1", outputs3)
@@ -29,10 +29,10 @@ object Main {
     // Display the storage
     plant.displayStorage()
 
-    // Save data to a file
+    //use case 2: Save data to a file
     plant.saveDataToFile("data.csv")
 
-    // Read data from a file
+    //use case 3: Read data from a file
     val plant2 = plant.readDataFromFile("data.csv")
     plant2 match {
       case Right(plant) =>
@@ -43,7 +43,7 @@ object Main {
         println(s"Error reading plant data: $error")
     }
 
-    //search
+    //use case 4: search
     println(plant.searchById("HP1"))
     println(plant.sortDataByTimestamp())
 
@@ -68,8 +68,8 @@ object Main {
       println(s"Mean: $mean, Median: $median, Mode: $mode, Range: $range, Midrange: $midRange")
     }
 
-    // Check for issues
-    plant.alertIssues(0.5)
+    //use case 5: Check for issues
+    plant.alertIssues(50)
   }
 }
 
