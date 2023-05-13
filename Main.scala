@@ -12,7 +12,7 @@ object Main {
     val outputs2 = (1 to 100).map(_ => TimestampedOutput(now.plusSeconds(random.nextInt(10000)), random.nextDouble())).toList
     val outputs3 = (1 to 100).map(_ => TimestampedOutput(now.plusSeconds(random.nextInt(10000)), random.nextDouble())).toList
 
-    //use case1: Create some energy sources
+    //use case 1: Create some energy sources
     val solarPanel = SolarPanel("SP1", outputs1)
     val windTurbine = WindTurbine("WT1", outputs2)
     val hydropowerPlant = HydropowerPlant("HP1", outputs3)
